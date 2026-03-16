@@ -15,12 +15,15 @@ export default function FurKandidatenPage() {
         className="relative flex min-h-[50vh] items-center bg-cover bg-center"
         style={{ backgroundImage: "url(/images/karriere.jpg)" }}
       >
-        <div className="absolute inset-0 bg-primary/80" />
-        <div className="relative mx-auto max-w-7xl px-6 py-24 text-white">
-          <h1 className="text-5xl font-bold tracking-tight md:text-7xl">
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="relative mx-auto max-w-7xl px-6 py-24">
+          <h1
+            className="text-5xl font-normal tracking-tight text-foreground md:text-7xl"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
             ZUKUNFT &amp; KARRIERE
           </h1>
-          <p className="mt-4 text-xl opacity-90">
+          <p className="mt-4 text-xl text-muted">
             Erkunden Sie Ihre Karrieremöglichkeiten in dynamischen und zukunftsorientierten
             Branchen
           </p>
@@ -28,9 +31,14 @@ export default function FurKandidatenPage() {
       </section>
 
       {/* Fachkräftemangel */}
-      <section className="py-24">
+      <section className="border-t border-border bg-background py-24">
         <div className="mx-auto max-w-4xl px-6">
-          <h2 className="mb-6 text-3xl font-bold">Ihre Fähigkeiten, unser Netzwerk</h2>
+          <h2
+            className="mb-6 text-3xl font-normal text-foreground"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Ihre Fähigkeiten, unser Netzwerk
+          </h2>
           <p className="text-lg text-muted">
             Branchen wie Pharmazie, IT, Maschinenbau und Elektrotechnik erleben einen
             anhaltenden Fachkräftemangel. Dies bietet qualifizierten Fachkräften
@@ -41,12 +49,15 @@ export default function FurKandidatenPage() {
       </section>
 
       {/* Innovation & Lead Sections */}
-      <section className="bg-gray-50 py-24">
+      <section className="border-t border-border bg-background py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 md:grid-cols-2">
-            <div className="rounded-2xl bg-white p-8 shadow-sm">
+            <div className="rounded-2xl border border-border bg-surface p-8">
               <p className="mb-2 text-sm font-semibold italic text-primary">Innovate</p>
-              <h3 className="mb-4 text-2xl font-bold">
+              <h3
+                className="mb-4 text-2xl font-normal text-foreground"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
                 Wissenschaft treibt die Innovation voran
               </h3>
               <p className="text-muted">
@@ -55,9 +66,12 @@ export default function FurKandidatenPage() {
                 Sie Ihre Expertise, um Teil der nächsten technologischen Revolution zu werden.
               </p>
             </div>
-            <div className="rounded-2xl bg-white p-8 shadow-sm">
+            <div className="rounded-2xl border border-border bg-surface p-8">
               <p className="mb-2 text-sm font-semibold italic text-primary">Lead</p>
-              <h3 className="mb-4 text-2xl font-bold">
+              <h3
+                className="mb-4 text-2xl font-normal text-foreground"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
                 Fortschritt durch Fach- &amp; Führungskräfte
               </h3>
               <p className="text-muted">
@@ -71,9 +85,14 @@ export default function FurKandidatenPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-primary py-16 text-center text-white">
-        <h2 className="mb-4 text-3xl font-bold">Bereit für den nächsten Karriereschritt?</h2>
-        <p className="mb-8 text-lg opacity-80">
+      <section className="border-t border-border bg-surface py-16 text-center">
+        <h2
+          className="mb-4 text-3xl font-normal text-foreground"
+          style={{ fontFamily: "var(--font-heading)" }}
+        >
+          Bereit für den nächsten Karriereschritt?
+        </h2>
+        <p className="mb-8 text-lg text-muted">
           Entdecken Sie unsere aktuellen Stellenanzeigen und finden Sie Ihre nächste
           Herausforderung.
         </p>
@@ -81,7 +100,7 @@ export default function FurKandidatenPage() {
           href="https://careers.codari.de/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block rounded-lg bg-white px-8 py-3 font-semibold text-primary transition-colors hover:bg-gray-100"
+          className="inline-block rounded-lg bg-accent px-8 py-3 font-semibold text-white transition-colors hover:bg-accent/80"
         >
           Stellenanzeigen
         </a>

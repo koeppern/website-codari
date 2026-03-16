@@ -25,7 +25,7 @@ const mainServices = [
     desc: "Wir sind spezialisiert auf die Konzeption und Implementierung maßgeschneiderter HR-Prozesse. Vom analytischen Review bis zur optimierten Verfahrensumsetzung begleiten wir Sie.",
   },
   {
-    title: "CODARI 360°",
+    title: "CODARI 360\u00B0",
     desc: "Unsere Rundum-Sorglos-Lösung ermöglicht es Ihnen, sich auf Ihr Kerngeschäft zu konzentrieren. Wir übernehmen administrative Aufgaben und steigern die Mitarbeiterzufriedenheit.",
   },
   {
@@ -46,14 +46,20 @@ export default function EmployerBrandingPage() {
         className="relative flex min-h-[50vh] items-center bg-cover bg-center"
         style={{ backgroundImage: "url(/images/hero-home.jpg)" }}
       >
-        <div className="absolute inset-0 bg-primary/85" />
-        <div className="relative mx-auto max-w-7xl px-6 py-24 text-white">
-          <h1 className="max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">
-            Employer Branding — der Erfolgsfaktor für Unternehmen mit Vision
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="relative mx-auto max-w-7xl px-6 py-24">
+          <h1
+            className="max-w-3xl text-4xl font-normal tracking-tight text-foreground md:text-6xl"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Employer Branding
           </h1>
+          <p className="mt-4 max-w-2xl text-xl text-muted">
+            Der Erfolgsfaktor für Unternehmen mit Vision
+          </p>
           <Link
             href="/kontakt"
-            className="mt-8 inline-block rounded-lg bg-white px-8 py-3 font-semibold text-primary transition-colors hover:bg-gray-100"
+            className="mt-8 inline-block rounded-lg bg-accent px-8 py-3 font-semibold text-white transition-colors hover:bg-accent/80"
           >
             Kontakt
           </Link>
@@ -61,9 +67,14 @@ export default function EmployerBrandingPage() {
       </section>
 
       {/* Service Portfolio */}
-      <section className="py-24">
+      <section className="border-t border-border bg-background py-24">
         <div className="mx-auto max-w-4xl px-6">
-          <h2 className="mb-8 text-center text-3xl font-bold">Unser Serviceportfolio</h2>
+          <h2
+            className="mb-8 text-center text-3xl font-normal text-foreground"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Unser Serviceportfolio
+          </h2>
           <p className="mb-12 text-center text-muted">
             Das Serviceportfolio von CODARI erfüllt individuelle Geschäftsanforderungen und
             bietet branchenführende Lösungen.
@@ -72,7 +83,7 @@ export default function EmployerBrandingPage() {
             {servicePortfolio.map((item) => (
               <li
                 key={item}
-                className="flex items-start gap-3 rounded-lg border border-border p-4"
+                className="flex items-start gap-3 rounded-lg border border-border bg-surface p-4"
               >
                 <svg
                   className="mt-0.5 h-5 w-5 shrink-0 text-primary"
@@ -87,7 +98,7 @@ export default function EmployerBrandingPage() {
                     d="M5 13l4 4L19 7"
                   />
                 </svg>
-                <span className="text-sm">{item}</span>
+                <span className="text-sm text-muted">{item}</span>
               </li>
             ))}
           </ul>
@@ -95,15 +106,20 @@ export default function EmployerBrandingPage() {
       </section>
 
       {/* Main Services */}
-      <section className="bg-gray-50 py-24">
+      <section className="border-t border-border bg-background py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-8 md:grid-cols-2">
             {mainServices.map((service) => (
               <div
                 key={service.title}
-                className="rounded-2xl bg-white p-8 shadow-sm transition-shadow hover:shadow-md"
+                className="rounded-2xl border border-border bg-surface p-8"
               >
-                <h3 className="mb-4 text-xl font-bold text-primary">{service.title}</h3>
+                <h3
+                  className="mb-4 text-xl font-normal text-primary"
+                  style={{ fontFamily: "var(--font-heading)" }}
+                >
+                  {service.title}
+                </h3>
                 <p className="text-muted">{service.desc}</p>
               </div>
             ))}
@@ -112,16 +128,19 @@ export default function EmployerBrandingPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-primary py-16 text-center text-white">
-        <h2 className="mb-4 text-3xl font-bold">
+      <section className="border-t border-border bg-surface py-16 text-center">
+        <h2
+          className="mb-4 text-3xl font-normal text-foreground"
+          style={{ fontFamily: "var(--font-heading)" }}
+        >
           Stärken Sie Ihre Arbeitgebermarke
         </h2>
-        <p className="mb-8 text-lg opacity-80">
+        <p className="mb-8 text-lg text-muted">
           Lassen Sie uns gemeinsam Ihre Employer-Branding-Strategie entwickeln.
         </p>
         <Link
           href="/kontakt"
-          className="inline-block rounded-lg bg-white px-8 py-3 font-semibold text-primary transition-colors hover:bg-gray-100"
+          className="inline-block rounded-lg bg-accent px-8 py-3 font-semibold text-white transition-colors hover:bg-accent/80"
         >
           Kostenloses Beratungsgespräch
         </Link>

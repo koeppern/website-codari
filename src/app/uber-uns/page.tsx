@@ -19,18 +19,28 @@ export default function UberUnsPage() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-primary/70" />
+        <div className="absolute inset-0 bg-black/70" />
         <div className="relative flex h-full items-center">
           <div className="mx-auto max-w-7xl px-6">
-            <h1 className="text-5xl font-bold text-white md:text-7xl">Über Uns</h1>
+            <h1
+              className="text-5xl font-normal text-foreground md:text-7xl"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              Über Uns
+            </h1>
           </div>
         </div>
       </section>
 
       {/* Unsere Geschichte */}
-      <section className="py-24">
+      <section className="border-t border-border bg-background py-24">
         <div className="mx-auto max-w-4xl px-6">
-          <h2 className="mb-8 text-3xl font-bold">Unsere Geschichte</h2>
+          <h2
+            className="mb-8 text-3xl font-normal text-foreground"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Unsere Geschichte
+          </h2>
           <p className="mb-6 text-lg text-muted">
             CODARI positioniert sich als vertrauenswürdiger Partner und Innovator mit
             maßgeschneiderten Services. Unser ganzheitlicher Ansatz in Mitarbeiterbindung,
@@ -41,12 +51,17 @@ export default function UberUnsPage() {
       </section>
 
       {/* Der Beginn */}
-      <section className="bg-gray-50 py-24">
+      <section className="border-t border-border bg-surface py-24">
         <div className="mx-auto max-w-4xl px-6">
           <h2 className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
             Der Beginn einer Partnerschaft
           </h2>
-          <h3 className="mb-8 text-3xl font-bold">Ein neues Kapitel: CODARI</h3>
+          <h3
+            className="mb-8 text-3xl font-normal text-foreground"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Ein neues Kapitel: CODARI
+          </h3>
           <div className="space-y-6 text-muted">
             <p>
               Die Geschichte von CODARI beginnt mit zwei Kollegen, deren starke Synergie und
@@ -63,9 +78,14 @@ export default function UberUnsPage() {
       </section>
 
       {/* Die Zukunft */}
-      <section className="py-24">
+      <section className="border-t border-border bg-background py-24">
         <div className="mx-auto max-w-4xl px-6">
-          <h2 className="mb-8 text-3xl font-bold">Die Zukunft</h2>
+          <h2
+            className="mb-8 text-3xl font-normal text-foreground"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Die Zukunft
+          </h2>
           <p className="text-lg text-muted">
             CODARI plant die Expansion mit Integration neuester technologischer Fortschritte
             und Markttrends. Unser Fokus liegt auf Innovation und dem Erfolg unserer Kunden.

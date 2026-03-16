@@ -7,12 +7,22 @@ export const metadata: Metadata = {
 
 export default function ImpressumPage() {
   return (
-    <section className="py-24">
+    <section className="bg-background py-24">
       <div className="mx-auto max-w-3xl px-6">
-        <h1 className="mb-12 text-4xl font-bold">Impressum</h1>
+        <h1
+          className="mb-12 text-4xl font-normal text-foreground"
+          style={{ fontFamily: "var(--font-heading)" }}
+        >
+          Impressum
+        </h1>
 
         <div className="prose max-w-none text-muted">
-          <h2 className="text-xl font-bold text-foreground">Angaben gemäß § 5 TMG</h2>
+          <h2
+            className="text-xl font-normal text-foreground"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Angaben gemäß § 5 TMG
+          </h2>
 
           <p className="mt-4">
             <strong className="text-foreground">CODARI GbR</strong>
@@ -26,7 +36,12 @@ export default function ImpressumPage() {
             <strong className="text-foreground">Gesellschaftssitz:</strong> Krefeld
           </p>
 
-          <h3 className="mt-8 text-lg font-bold text-foreground">Kontakt</h3>
+          <h3
+            className="mt-8 text-lg font-normal text-foreground"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Kontakt
+          </h3>
           <p>
             E-Mail:{" "}
             <a href="mailto:info@codari.de" className="text-primary hover:underline">
@@ -39,7 +54,12 @@ export default function ImpressumPage() {
             </a>
           </p>
 
-          <h3 className="mt-8 text-lg font-bold text-foreground">Geschäftsführung</h3>
+          <h3
+            className="mt-8 text-lg font-normal text-foreground"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Geschäftsführung
+          </h3>
           <p>
             Antonia Kruck
             <br />

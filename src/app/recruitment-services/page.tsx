@@ -40,9 +40,15 @@ export default function RecruitmentServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary py-24 text-white">
-        <div className="mx-auto max-w-7xl px-6">
-          <h1 className="text-5xl font-bold tracking-tight md:text-7xl">
+      <section className="relative flex min-h-[50vh] items-center bg-cover bg-center"
+        style={{ backgroundImage: "url(/images/hero-home.jpg)" }}
+      >
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="relative mx-auto max-w-7xl px-6 py-24">
+          <h1
+            className="text-5xl font-normal tracking-tight text-foreground md:text-7xl"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
             RECRUITMENT
             <br />
             SERVICES
@@ -51,19 +57,24 @@ export default function RecruitmentServicesPage() {
       </section>
 
       {/* Services */}
-      <section className="py-24">
+      <section className="border-t border-border bg-background py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid items-center gap-12 md:grid-cols-2">
-            <div>
-              <h2 className="mb-8 text-3xl font-bold">Unsere Dienstleistungen</h2>
-              <div className="space-y-8">
-                {services.map((service) => (
-                  <div key={service.title} className="rounded-xl border border-border p-6">
-                    <h3 className="mb-3 text-xl font-bold text-primary">{service.title}</h3>
-                    <p className="text-muted">{service.desc}</p>
-                  </div>
-                ))}
-              </div>
+          <h2
+            className="mb-12 text-3xl font-normal text-foreground"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Unsere Dienstleistungen
+          </h2>
+          <div className="grid items-start gap-12 md:grid-cols-2">
+            <div className="space-y-8">
+              {services.map((service) => (
+                <div key={service.title} className="rounded-xl border border-border bg-surface p-6">
+                  <h3 className="mb-3 text-xl font-normal text-primary" style={{ fontFamily: "var(--font-heading)" }}>
+                    {service.title}
+                  </h3>
+                  <p className="text-muted">{service.desc}</p>
+                </div>
+              ))}
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
               <Image
@@ -78,7 +89,7 @@ export default function RecruitmentServicesPage() {
       </section>
 
       {/* Kernbotschaft */}
-      <section className="bg-gray-50 py-24">
+      <section className="border-t border-border bg-background py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 md:grid-cols-2">
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
             <Image
@@ -89,7 +100,12 @@ export default function RecruitmentServicesPage() {
             />
           </div>
           <div>
-            <h2 className="mb-6 text-3xl font-bold">Ihr Vorhaben, unser Netzwerk</h2>
+            <h2
+              className="mb-6 text-3xl font-normal text-foreground"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              IHR VORHABEN, UNSER NETZWERK
+            </h2>
             <p className="text-lg text-muted">
               Wir sind spezialisiert auf die Vermittlung von Fach- und Führungskräften in den
               Bereichen IT, Gesundheitswesen, Ingenieurswesen und Executive Search für
@@ -102,23 +118,26 @@ export default function RecruitmentServicesPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24">
+      <section className="border-t border-border bg-background py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <h2 className="mb-16 text-center text-3xl font-bold">
+          <h2
+            className="mb-16 text-center text-3xl font-normal text-foreground"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
             Das sagen unsere Kunden &amp; Kandidaten
           </h2>
           <div className="grid gap-8 md:grid-cols-2">
             {testimonials.map((t) => (
               <div
                 key={t.author}
-                className="rounded-2xl border border-border bg-white p-8 shadow-sm"
+                className="rounded-2xl border border-border bg-surface p-8"
               >
-                <svg className="mb-4 h-8 w-8 text-primary-light" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="mb-4 h-8 w-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
                 <p className="mb-6 text-muted">{t.text}</p>
                 <div>
-                  <p className="font-bold">{t.author}</p>
+                  <p className="font-semibold text-foreground">{t.author}</p>
                   <p className="text-sm text-muted">{t.role}</p>
                 </div>
               </div>
@@ -128,14 +147,19 @@ export default function RecruitmentServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-primary py-16 text-center text-white">
-        <h2 className="mb-4 text-3xl font-bold">Bereit, Ihr Team zu verstärken?</h2>
-        <p className="mb-8 text-lg opacity-80">
+      <section className="border-t border-border bg-surface py-16 text-center">
+        <h2
+          className="mb-4 text-3xl font-normal text-foreground"
+          style={{ fontFamily: "var(--font-heading)" }}
+        >
+          Bereit, Ihr Team zu verstärken?
+        </h2>
+        <p className="mb-8 text-lg text-muted">
           Kontaktieren Sie uns für ein kostenloses Beratungsgespräch.
         </p>
         <Link
           href="/kontakt"
-          className="inline-block rounded-lg bg-white px-8 py-3 font-semibold text-primary transition-colors hover:bg-gray-100"
+          className="inline-block rounded-lg bg-accent px-8 py-3 font-semibold text-white transition-colors hover:bg-accent/80"
         >
           Kontakt aufnehmen
         </Link>

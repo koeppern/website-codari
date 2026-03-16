@@ -11,9 +11,12 @@ export default function SCRPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary py-24 text-white">
+      <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <h1 className="text-5xl font-bold tracking-tight md:text-7xl">
+          <h1
+            className="text-5xl font-normal tracking-tight text-foreground md:text-7xl"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
             SOCIAL CORPORATE
             <br />
             RESPONSIBILITY
@@ -22,9 +25,14 @@ export default function SCRPage() {
       </section>
 
       {/* Unsere Verantwortung */}
-      <section className="py-24">
+      <section className="border-t border-border bg-background py-24">
         <div className="mx-auto max-w-4xl px-6">
-          <h2 className="mb-8 text-3xl font-bold">Unsere Verantwortung</h2>
+          <h2
+            className="mb-8 text-3xl font-normal text-foreground"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Unsere Verantwortung
+          </h2>
           <p className="text-lg text-muted">
             Corporate Social Responsibility ist für CODARI nicht nur ein ethischer Imperativ,
             sondern auch ein strategischer Vorteil. Wir spenden einen variablen Umsatzanteil
@@ -35,12 +43,17 @@ export default function SCRPage() {
       </section>
 
       {/* SCR Programm */}
-      <section className="bg-gray-50 py-24">
+      <section className="border-t border-border bg-background py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <h2 className="mb-16 text-center text-3xl font-bold">SCR Programm</h2>
+          <h2
+            className="mb-16 text-center text-3xl font-normal text-foreground"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            SCR Programm
+          </h2>
           <div className="grid gap-12 md:grid-cols-2">
             {/* Natur */}
-            <div className="overflow-hidden rounded-2xl bg-white shadow-sm">
+            <div className="overflow-hidden rounded-2xl border border-border bg-surface">
               <div className="relative aspect-[4/3]">
                 <Image
                   src="/images/nature.jpg"
@@ -50,7 +63,10 @@ export default function SCRPage() {
                 />
               </div>
               <div className="p-8">
-                <h3 className="mb-4 text-xl font-bold">
+                <h3
+                  className="mb-4 text-xl font-normal text-foreground"
+                  style={{ fontFamily: "var(--font-heading)" }}
+                >
                   Warum wir unsere Natur schützen
                 </h3>
                 <p className="text-muted">
@@ -63,7 +79,7 @@ export default function SCRPage() {
             </div>
 
             {/* Humanitär */}
-            <div className="overflow-hidden rounded-2xl bg-white shadow-sm">
+            <div className="overflow-hidden rounded-2xl border border-border bg-surface">
               <div className="relative aspect-[4/3]">
                 <Image
                   src="/images/humanitarian.jpg"
@@ -73,7 +89,12 @@ export default function SCRPage() {
                 />
               </div>
               <div className="p-8">
-                <h3 className="mb-4 text-xl font-bold">Humanitäre Unterstützung</h3>
+                <h3
+                  className="mb-4 text-xl font-normal text-foreground"
+                  style={{ fontFamily: "var(--font-heading)" }}
+                >
+                  Humanitäre Unterstützung
+                </h3>
                 <p className="text-muted">
                   Laut UNHCR waren 2021 über 82 Millionen Menschen auf der Flucht. Durch
                   gezielte CSR-Initiativen unterstützen wir Organisationen, die sich für
@@ -86,11 +107,16 @@ export default function SCRPage() {
       </section>
 
       {/* Weiterführende Links */}
-      <section className="py-24">
+      <section className="border-t border-border bg-background py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <h2 className="mb-12 text-center text-3xl font-bold">Weiterführende Artikel</h2>
+          <h2
+            className="mb-12 text-center text-3xl font-normal text-foreground"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Weiterführende Artikel
+          </h2>
           <div className="grid gap-8 md:grid-cols-2">
-            <div className="group overflow-hidden rounded-2xl border border-border">
+            <div className="group overflow-hidden rounded-2xl border border-border bg-surface">
               <div className="relative aspect-[3/4] max-h-[300px]">
                 <Image
                   src="/images/regenwald.jpg"
@@ -100,13 +126,16 @@ export default function SCRPage() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="mb-2 text-lg font-bold">
+                <h3
+                  className="mb-2 text-lg font-normal text-foreground"
+                  style={{ fontFamily: "var(--font-heading)" }}
+                >
                   Der größte Regenwald der Erde
                 </h3>
                 <p className="text-sm text-muted">WWF Amazonien-Projekt</p>
               </div>
             </div>
-            <div className="group overflow-hidden rounded-2xl border border-border">
+            <div className="group overflow-hidden rounded-2xl border border-border bg-surface">
               <div className="relative aspect-[3/4] max-h-[300px]">
                 <Image
                   src="/images/menschenrechte.jpg"
@@ -116,7 +145,10 @@ export default function SCRPage() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="mb-2 text-lg font-bold">
+                <h3
+                  className="mb-2 text-lg font-normal text-foreground"
+                  style={{ fontFamily: "var(--font-heading)" }}
+                >
                   Zur weltweiten Lage der Menschenrechte
                 </h3>
                 <p className="text-sm text-muted">Amnesty International</p>

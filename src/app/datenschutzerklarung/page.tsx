@@ -7,11 +7,16 @@ export const metadata: Metadata = {
 
 export default function DatenschutzPage() {
   return (
-    <section className="py-24">
+    <section className="bg-background py-24">
       <div className="mx-auto max-w-3xl px-6">
-        <h1 className="mb-12 text-4xl font-bold">Datenschutzerklärung</h1>
+        <h1
+          className="mb-12 text-4xl font-normal text-foreground"
+          style={{ fontFamily: "var(--font-heading)" }}
+        >
+          Datenschutzerklärung
+        </h1>
 
-        <div className="prose max-w-none space-y-8 text-muted [&_h2]:mb-4 [&_h2]:mt-12 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-foreground [&_h3]:mb-3 [&_h3]:mt-6 [&_h3]:text-lg [&_h3]:font-bold [&_h3]:text-foreground [&_p]:mb-4">
+        <div className="prose max-w-none space-y-8 text-muted [&_h2]:mb-4 [&_h2]:mt-12 [&_h2]:text-xl [&_h2]:font-normal [&_h2]:text-foreground [&_h3]:mb-3 [&_h3]:mt-6 [&_h3]:text-lg [&_h3]:font-normal [&_h3]:text-foreground [&_p]:mb-4">
           <p>
             Der Schutz Ihrer personenbezogenen Daten hat für die CODARI GbR höchste
             Priorität. Die Nutzung unserer Internetseite ist grundsätzlich ohne Angabe
