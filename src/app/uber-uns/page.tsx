@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { breadcrumbJsonLd } from "@/lib/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Über Uns — Geschichte & Vision",
@@ -11,6 +12,11 @@ export const metadata: Metadata = {
 export default function UberUnsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: "Über Uns", href: "/uber-uns" }])) }}
+      />
+
       {/* Hero */}
       <section className="relative h-[40vh] min-h-[300px]">
         <Image

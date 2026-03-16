@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { breadcrumbJsonLd } from "@/lib/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Social Corporate Responsibility",
@@ -11,6 +12,11 @@ export const metadata: Metadata = {
 export default function SCRPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: "Social Corporate Responsibility", href: "/social-corporate-responsibility" }])) }}
+      />
+
       {/* Hero */}
       <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6">

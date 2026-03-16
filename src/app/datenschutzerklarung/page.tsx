@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { breadcrumbJsonLd } from "@/lib/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Datenschutzerklärung",
@@ -9,9 +10,14 @@ export const metadata: Metadata = {
 
 export default function DatenschutzPage() {
   return (
-    <section className="bg-background py-24">
-      <div className="mx-auto max-w-3xl px-6">
-        <h1
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: "Datenschutzerklärung", href: "/datenschutzerklarung" }])) }}
+      />
+      <section className="bg-background py-24">
+        <div className="mx-auto max-w-3xl px-6">
+          <h1
           className="mb-12 text-4xl font-normal text-foreground"
           style={{ fontFamily: "var(--font-heading)" }}
         >
@@ -155,5 +161,6 @@ export default function DatenschutzPage() {
         </div>
       </div>
     </section>
+    </>
   );
 }

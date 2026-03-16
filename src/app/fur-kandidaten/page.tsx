@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { breadcrumbJsonLd } from "@/lib/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Für Kandidaten — Karriere in IT & Engineering",
@@ -12,6 +13,11 @@ export const metadata: Metadata = {
 export default function FurKandidatenPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: "HR Services", href: "/recruitment-services" }, { name: "Für Kandidaten", href: "/fur-kandidaten" }])) }}
+      />
+
       {/* Hero */}
       <section className="relative flex min-h-[50vh] items-center">
         <Image

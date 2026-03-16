@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
+import { breadcrumbJsonLd } from "@/lib/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Kontakt — Beratungsgespräch vereinbaren",
@@ -54,6 +55,10 @@ export default function KontaktPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(business) }}
         />
       ))}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: "Kontakt", href: "/kontakt" }])) }}
+      />
 
       {/* Hero */}
       <section className="relative h-[40vh] min-h-[300px]">
