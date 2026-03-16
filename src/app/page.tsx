@@ -10,6 +10,7 @@ export default function Home() {
           src="/images/hero-poster.jpg"
           alt="CODARI Hero"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
@@ -73,6 +74,7 @@ export default function Home() {
               src="/images/handshake.jpg"
               alt="Geschäftspartner beim Handschlag"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
             />
           </div>

@@ -96,10 +96,10 @@ export default function DatenschutzPage() {
 
           <h2>5. Kontaktmöglichkeit über die Internetseite</h2>
           <p>
-            Unsere Internetseite enthält ein Kontaktformular sowie eine E-Mail-Adresse. Von
-            der betroffenen Person übermittelte personenbezogene Daten werden automatisch
-            gespeichert und ausschließlich für Bearbeitungs- und Kontaktzwecke verwendet.
-            Eine Weitergabe an Dritte erfolgt nicht.
+            Unsere Internetseite enthält eine E-Mail-Adresse sowie eine Telefonnummer zur
+            Kontaktaufnahme. Von der betroffenen Person übermittelte personenbezogene Daten
+            werden ausschließlich für Bearbeitungs- und Kontaktzwecke verwendet. Eine
+            Weitergabe an Dritte erfolgt nicht.
           </p>
 
           <h2>6. Routinemäßige Löschung und Sperrung</h2>

@@ -59,6 +59,7 @@ export default function SCRPage() {
                   src="/images/nature.jpg"
                   alt="Naturschutz"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
@@ -85,6 +86,7 @@ export default function SCRPage() {
                   src="/images/humanitarian.jpg"
                   alt="Humanitäre Unterstützung"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
@@ -116,12 +118,18 @@ export default function SCRPage() {
             Weiterführende Artikel
           </h2>
           <div className="grid gap-8 md:grid-cols-2">
-            <div className="group overflow-hidden rounded-2xl border border-border bg-surface">
+            <a
+              href="https://www.wwf.de/themen-projekte/projektregionen/amazonien"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-primary"
+            >
               <div className="relative aspect-[3/4] max-h-[300px]">
                 <Image
                   src="/images/regenwald.jpg"
                   alt="Regenwald"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover transition-transform group-hover:scale-105"
                 />
               </div>
@@ -134,13 +142,19 @@ export default function SCRPage() {
                 </h3>
                 <p className="text-sm text-muted">WWF Amazonien-Projekt</p>
               </div>
-            </div>
-            <div className="group overflow-hidden rounded-2xl border border-border bg-surface">
+            </a>
+            <a
+              href="https://www.amnesty.de/informieren/amnesty-report"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-primary"
+            >
               <div className="relative aspect-[3/4] max-h-[300px]">
                 <Image
                   src="/images/menschenrechte.jpg"
                   alt="Menschenrechte"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover transition-transform group-hover:scale-105"
                 />
               </div>
@@ -153,7 +167,7 @@ export default function SCRPage() {
                 </h3>
                 <p className="text-sm text-muted">Amnesty International</p>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </section>

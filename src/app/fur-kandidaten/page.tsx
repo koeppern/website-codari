@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -11,10 +12,15 @@ export default function FurKandidatenPage() {
   return (
     <>
       {/* Hero */}
-      <section
-        className="relative flex min-h-[50vh] items-center bg-cover bg-center"
-        style={{ backgroundImage: "url(/images/karriere.jpg)" }}
-      >
+      <section className="relative flex min-h-[50vh] items-center">
+        <Image
+          src="/images/karriere.jpg"
+          alt="Karriere"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
+        />
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative mx-auto max-w-7xl px-6 py-24">
           <h1

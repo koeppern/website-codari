@@ -40,9 +40,15 @@ export default function RecruitmentServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative flex min-h-[50vh] items-center bg-cover bg-center"
-        style={{ backgroundImage: "url(/images/hero-home.jpg)" }}
-      >
+      <section className="relative flex min-h-[50vh] items-center">
+        <Image
+          src="/images/hero-home.jpg"
+          alt="Recruitment Services"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
+        />
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative mx-auto max-w-7xl px-6 py-24">
           <h1
@@ -81,6 +87,7 @@ export default function RecruitmentServicesPage() {
                 src="/images/meeting.jpg"
                 alt="Team beim Meeting"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>
@@ -96,6 +103,7 @@ export default function RecruitmentServicesPage() {
               src="/images/campaign.jpg"
               alt="Geschäftstreffen"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
             />
           </div>

@@ -16,6 +16,7 @@ export default function UberUnsPage() {
           src="/images/uber-uns-hero.jpg"
           alt="CODARI Büro"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
@@ -53,15 +54,15 @@ export default function UberUnsPage() {
       {/* Der Beginn */}
       <section className="border-t border-border bg-surface py-24">
         <div className="mx-auto max-w-4xl px-6">
-          <h2 className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
             Der Beginn einer Partnerschaft
-          </h2>
-          <h3
+          </p>
+          <h2
             className="mb-8 text-3xl font-normal text-foreground"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Ein neues Kapitel: CODARI
-          </h3>
+          </h2>
           <div className="space-y-6 text-muted">
             <p>
               Die Geschichte von CODARI beginnt mit zwei Kollegen, deren starke Synergie und

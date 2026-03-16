@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 const navItems = [
@@ -24,11 +24,29 @@ const navItems = [
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setDropdownOpen(false);
+        setMobileOpen(false);
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  const handleDropdownBlur = (e: React.FocusEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.relatedTarget as Node)) {
+      setDropdownOpen(false);
+    }
   };
 
   return (
@@ -46,17 +64,22 @@ export default function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav aria-label="Hauptnavigation" className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) =>
             item.children ? (
               <div
                 key={item.label}
+                ref={dropdownRef}
                 className="relative"
                 onMouseEnter={() => setDropdownOpen(true)}
                 onMouseLeave={() => setDropdownOpen(false)}
+                onFocus={() => setDropdownOpen(true)}
+                onBlur={handleDropdownBlur}
               >
                 <Link
                   href={item.href}
+                  aria-haspopup="true"
+                  aria-expanded={dropdownOpen}
                   className={`font-heading text-sm transition-colors ${
                     isActive(item.href) || isActive("/fur-unternehmen") || isActive("/fur-kandidaten")
                       ? "text-primary"
@@ -105,7 +128,9 @@ export default function Header() {
         <button
           className="text-white lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Menü öffnen"
+          aria-label={mobileOpen ? "Menü schließen" : "Menü öffnen"}
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-nav"
         >
           <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             {mobileOpen ? (
@@ -119,7 +144,7 @@ export default function Header() {
 
       {/* Mobile Nav */}
       {mobileOpen && (
-        <nav className="border-t border-border bg-black px-6 py-4 lg:hidden">
+        <nav id="mobile-nav" aria-label="Mobile Navigation" className="border-t border-border bg-black px-6 py-4 lg:hidden">
           {navItems.map((item) => (
             <div key={item.label}>
               <Link

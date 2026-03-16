@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Für Unternehmen - CODARI",
@@ -27,10 +27,15 @@ export default function FurUnternehmenPage() {
   return (
     <>
       {/* Hero */}
-      <section
-        className="relative flex min-h-[50vh] items-center bg-cover bg-center"
-        style={{ backgroundImage: "url(/images/karriere.jpg)" }}
-      >
+      <section className="relative flex min-h-[50vh] items-center">
+        <Image
+          src="/images/karriere.jpg"
+          alt="Für Unternehmen"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
+        />
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative mx-auto max-w-7xl px-6 py-24">
           <h1
@@ -59,15 +64,15 @@ export default function FurUnternehmenPage() {
       <section className="border-t border-border bg-background py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-2">
           <div className="rounded-2xl border border-border bg-surface p-8">
-            <h2 className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
               Festanstellung
-            </h2>
-            <h3
+            </p>
+            <h2
               className="mb-4 text-2xl font-normal text-foreground"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               Fachwissen verankern
-            </h3>
+            </h2>
             <p className="text-muted">
               Verstärken Sie Ihr Team durch gezielt ausgewählte Spezialisten. Wir legen Wert
               auf Kulturpassung und nutzen fortschrittliche Matching-Technologien sowie
@@ -75,15 +80,15 @@ export default function FurUnternehmenPage() {
             </p>
           </div>
           <div className="rounded-2xl border border-border bg-surface p-8">
-            <h2 className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
               Freelancer
-            </h2>
-            <h3
+            </p>
+            <h2
               className="mb-4 text-2xl font-normal text-foreground"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               Für flexible Lösungen
-            </h3>
+            </h2>
             <p className="text-muted">
               Zugang zu hochqualifizierten unabhängigen Experten für kurzfristige
               Unterstützung oder spezielle Fachkenntnisse. Unsere Freelancer bringen
@@ -129,60 +134,7 @@ export default function FurUnternehmenPage() {
           >
             Kontaktieren Sie uns
           </h2>
-          <form className="space-y-6">
-            <div>
-              <label htmlFor="name" className="mb-2 block text-sm font-medium text-foreground">
-                Vor- und Nachname *
-              </label>
-              <input
-                id="name"
-                type="text"
-                required
-                className="w-full rounded-lg border border-border bg-surface px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="mb-2 block text-sm font-medium text-foreground">
-                E-Mail *
-              </label>
-              <input
-                id="email"
-                type="email"
-                required
-                className="w-full rounded-lg border border-border bg-surface px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="mb-2 block text-sm font-medium text-foreground">
-                Nachricht *
-              </label>
-              <textarea
-                id="message"
-                required
-                rows={5}
-                className="w-full rounded-lg border border-border bg-surface px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-              />
-            </div>
-            <p className="text-sm text-muted">
-              Dieses Formular ist derzeit nicht funktional. Bitte kontaktieren Sie uns
-              direkt per E-Mail an{" "}
-              <a href="mailto:info@codari.de" className="text-primary hover:underline">
-                info@codari.de
-              </a>{" "}
-              oder telefonisch unter{" "}
-              <a href="tel:+4921516476293" className="text-primary hover:underline">
-                +49 2151 6476293
-              </a>
-              .
-            </p>
-            <button
-              type="button"
-              disabled
-              className="w-full rounded-lg bg-accent/50 px-8 py-3 font-semibold text-white"
-            >
-              Senden
-            </button>
-          </form>
+          <ContactForm />
         </div>
       </section>
     </>
