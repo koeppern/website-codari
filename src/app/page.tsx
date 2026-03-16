@@ -1,14 +1,34 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Employer Branding & Recruitment DACH",
+  description:
+    "CODARI verbindet Employer Branding mit Recruitment — Fachkräfte finden, binden und Ihre Arbeitgebermarke stärken. Jetzt beraten lassen.",
+  alternates: { canonical: "/" },
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "CODARI",
+  url: "https://codari.de",
+};
 
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
+
       {/* Hero */}
       <section className="relative flex min-h-[80vh] items-center justify-center">
         <Image
           src="/images/hero-poster.jpg"
-          alt="CODARI Hero"
+          alt="Professionelles Teammeeting in modernem Büro — CODARI Employer Branding"
           fill
           sizes="100vw"
           className="object-cover"
@@ -72,7 +92,7 @@ export default function Home() {
           <div className="relative aspect-square overflow-hidden rounded-2xl">
             <Image
               src="/images/handshake.jpg"
-              alt="Geschäftspartner beim Handschlag"
+              alt="Geschäftspartner beim Handschlag nach erfolgreicher Personalvermittlung"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"

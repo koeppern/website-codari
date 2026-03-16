@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Über Uns - CODARI Consulting",
+  title: "Über Uns — Geschichte & Vision",
   description:
-    "Erfahren Sie mehr über unsere professionelle Beratung und wie wir Unternehmen unterstützen.",
+    "CODARI vereint Employer Branding und HR-Expertise. Erfahren Sie, wie wir Unternehmen in der DACH-Region nachhaltig stärken.",
+  alternates: { canonical: "/uber-uns" },
 };
 
 export default function UberUnsPage() {
@@ -14,7 +15,7 @@ export default function UberUnsPage() {
       <section className="relative h-[40vh] min-h-[300px]">
         <Image
           src="/images/uber-uns-hero.jpg"
-          alt="CODARI Büro"
+          alt="CODARI Büro — Team bei der Arbeit"
           fill
           sizes="100vw"
           className="object-cover"

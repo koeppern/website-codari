@@ -3,9 +3,22 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Employer Branding - CODARI",
+  title: "Employer Branding — Arbeitgebermarke stärken",
   description:
-    "Maßgeschneiderte Employer-Branding-Strategien und authentische Markenbotschaften.",
+    "Employer-Branding-Strategien von der EVP bis zur Kampagne. Arbeitgebermarke aufbauen und Fachkräfte gewinnen. Jetzt beraten lassen.",
+  alternates: { canonical: "/employer-branding" },
+};
+
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Employer Branding",
+  description: "Maßgeschneiderte Employer-Branding-Strategien: Audits, Kampagnen, EVP-Entwicklung und Personalentwicklung.",
+  provider: {
+    "@type": "Organization",
+    name: "CODARI GbR",
+    url: "https://codari.de",
+  },
 };
 
 const servicePortfolio = [
@@ -42,6 +55,11 @@ const mainServices = [
 export default function EmployerBrandingPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+
       {/* Hero */}
       <section className="relative flex min-h-[50vh] items-center">
         <Image

@@ -3,9 +3,10 @@ import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Für Unternehmen - CODARI",
+  title: "Für Unternehmen — Personal & Employer Branding",
   description:
-    "Ganzheitliche Unterstützung in den Bereichen Personal & Employer Branding für Unternehmen.",
+    "Fach- und Führungskräfte in IT, Pharma und Engineering finden. Festanstellung oder Freelancer — CODARI vermittelt passgenau.",
+  alternates: { canonical: "/fur-unternehmen" },
 };
 
 const itServices = [
@@ -51,6 +52,7 @@ export default function FurUnternehmenPage() {
       {/* Intro */}
       <section className="border-t border-border bg-background py-24">
         <div className="mx-auto max-w-4xl px-6 text-center">
+          <h2 className="sr-only">Unsere Leistungen</h2>
           <p className="text-lg text-muted">
             Wir bieten Ihnen die Vermittlung von Fach- und Führungskräften in den Bereichen
             IT, Pharma, Engineering und Executive Search für Festanstellungen und
@@ -67,7 +69,7 @@ export default function FurUnternehmenPage() {
             <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
               Festanstellung
             </p>
-            <h2
+            <h3
               className="mb-4 text-2xl font-normal text-foreground"
               style={{ fontFamily: "var(--font-heading)" }}
             >

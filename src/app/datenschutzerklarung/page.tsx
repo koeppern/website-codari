@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Datenschutzerklärung - CODARI Consulting",
+  title: "Datenschutzerklärung",
   description: "Datenschutzerklärung der CODARI GbR gemäß DSGVO.",
+  alternates: { canonical: "/datenschutzerklarung" },
+  robots: { index: true, follow: true },
 };
 
 export default function DatenschutzPage() {

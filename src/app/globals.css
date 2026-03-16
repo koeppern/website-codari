@@ -10,8 +10,8 @@
   --color-border: #2a2a2a;
   --color-surface: #111111;
   --color-surface-light: #f2f3f6;
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
+  --font-heading: var(--font-montserrat, 'Montserrat', sans-serif);
+  --font-body: var(--font-dm-sans, 'DM Sans', sans-serif);
 }
 
 body {

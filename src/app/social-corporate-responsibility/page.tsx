@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Social Corporate Responsibility - CODARI",
+  title: "Social Corporate Responsibility",
   description:
-    "CODARIs Engagement für Umweltschutz, humanitäre Hilfe und soziale Gerechtigkeit.",
+    "CODARI spendet pro Geschäftsabschluss an Umweltschutz- und Hilfsorganisationen. Unser CSR-Engagement im Überblick.",
+  alternates: { canonical: "/social-corporate-responsibility" },
 };
 
 export default function SCRPage() {

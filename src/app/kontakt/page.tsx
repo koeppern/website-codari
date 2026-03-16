@@ -3,14 +3,58 @@ import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Kontakt - CODARI",
+  title: "Kontakt — Beratungsgespräch vereinbaren",
   description:
-    "Nehmen Sie mit uns Kontakt auf für ein kostenloses Beratungsgespräch in Employer Branding und HR-Services.",
+    "Kostenloses Beratungsgespräch für Employer Branding und Recruitment. Standorte in Düsseldorf und Krefeld. Jetzt Kontakt aufnehmen.",
+  alternates: { canonical: "/kontakt" },
 };
+
+const localBusinessJsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "CODARI GbR — Düsseldorf",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Breite Straße 3",
+      addressLocality: "Düsseldorf",
+      postalCode: "40213",
+      addressCountry: "DE",
+    },
+    telephone: "+49-2151-6476293",
+    email: "info@codari.de",
+    url: "https://codari.de/kontakt",
+    openingHours: "Mo-Fr 08:00-18:00",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "CODARI GbR — Krefeld",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Eichendorffstraße 38",
+      addressLocality: "Krefeld",
+      postalCode: "47800",
+      addressCountry: "DE",
+    },
+    telephone: "+49-2151-6476293",
+    email: "info@codari.de",
+    url: "https://codari.de/kontakt",
+    openingHours: "Mo-Fr 08:00-18:00",
+  },
+];
 
 export default function KontaktPage() {
   return (
     <>
+      {localBusinessJsonLd.map((business, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(business) }}
+        />
+      ))}
+
       {/* Hero */}
       <section className="relative h-[40vh] min-h-[300px]">
         <Image

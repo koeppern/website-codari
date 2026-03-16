@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Impressum - Codari GbR",
-  description: "Gesetzlich vorgeschriebene Angaben gemäß § 5 TMG.",
+  title: "Impressum",
+  description: "Impressum der CODARI GbR — Angaben gemäß § 5 TMG.",
+  alternates: { canonical: "/impressum" },
+  robots: { index: true, follow: true },
 };
 
 export default function ImpressumPage() {

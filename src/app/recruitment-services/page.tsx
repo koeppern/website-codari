@@ -3,9 +3,22 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Recruitment Services - CODARI",
+  title: "Recruitment Services — Fach- & Führungskräfte",
   description:
-    "Vermittlung von Fach- und Führungskräften in IT, Gesundheitswesen, Ingenieurwesen und Executive Search.",
+    "Vermittlung von Fach- und Führungskräften in IT, Gesundheitswesen und Engineering. Festanstellung & Projektbasis. Jetzt anfragen.",
+  alternates: { canonical: "/recruitment-services" },
+};
+
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Recruitment Services",
+  description: "Vermittlung von Fach- und Führungskräften in IT, Gesundheitswesen, Ingenieurwesen und Executive Search.",
+  provider: {
+    "@type": "Organization",
+    name: "CODARI GbR",
+    url: "https://codari.de",
+  },
 };
 
 const services = [
@@ -39,6 +52,11 @@ const testimonials = [
 export default function RecruitmentServicesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+
       {/* Hero */}
       <section className="relative flex min-h-[50vh] items-center">
         <Image

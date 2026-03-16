@@ -3,9 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Für Kandidaten - CODARI",
+  title: "Für Kandidaten — Karriere in IT & Engineering",
   description:
-    "Erkunden Sie Ihre Karrieremöglichkeiten in dynamischen und zukunftsorientierten Branchen.",
+    "Karrierechancen in IT, Pharma und Engineering. CODARI verbindet Fachkräfte mit Top-Arbeitgebern in der DACH-Region.",
+  alternates: { canonical: "/fur-kandidaten" },
 };
 
 export default function FurKandidatenPage() {
