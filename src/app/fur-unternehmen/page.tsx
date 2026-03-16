@@ -74,7 +74,7 @@ export default function FurUnternehmenPage() {
               style={{ fontFamily: "var(--font-heading)" }}
             >
               Fachwissen verankern
-            </h2>
+            </h3>
             <p className="text-muted">
               Verstärken Sie Ihr Team durch gezielt ausgewählte Spezialisten. Wir legen Wert
               auf Kulturpassung und nutzen fortschrittliche Matching-Technologien sowie
@@ -85,12 +85,12 @@ export default function FurUnternehmenPage() {
             <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
               Freelancer
             </p>
-            <h2
+            <h3
               className="mb-4 text-2xl font-normal text-foreground"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               Für flexible Lösungen
-            </h2>
+            </h3>
             <p className="text-muted">
               Zugang zu hochqualifizierten unabhängigen Experten für kurzfristige
               Unterstützung oder spezielle Fachkenntnisse. Unsere Freelancer bringen
