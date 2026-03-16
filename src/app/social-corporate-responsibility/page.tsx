@@ -1,0 +1,130 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Social Corporate Responsibility - CODARI",
+  description:
+    "CODARIs Engagement für Umweltschutz, humanitäre Hilfe und soziale Gerechtigkeit.",
+};
+
+export default function SCRPage() {
+  return (
+    <>
+      {/* Hero */}
+      <section className="bg-primary py-24 text-white">
+        <div className="mx-auto max-w-7xl px-6">
+          <h1 className="text-5xl font-bold tracking-tight md:text-7xl">
+            SOCIAL CORPORATE
+            <br />
+            RESPONSIBILITY
+          </h1>
+        </div>
+      </section>
+
+      {/* Unsere Verantwortung */}
+      <section className="py-24">
+        <div className="mx-auto max-w-4xl px-6">
+          <h2 className="mb-8 text-3xl font-bold">Unsere Verantwortung</h2>
+          <p className="text-lg text-muted">
+            Corporate Social Responsibility ist für CODARI nicht nur ein ethischer Imperativ,
+            sondern auch ein strategischer Vorteil. Wir spenden einen variablen Umsatzanteil
+            pro abgeschlossenes Geschäft an Organisationen für Umweltschutz, humanitäre
+            Hilfe und soziale Gerechtigkeit.
+          </p>
+        </div>
+      </section>
+
+      {/* SCR Programm */}
+      <section className="bg-gray-50 py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <h2 className="mb-16 text-center text-3xl font-bold">SCR Programm</h2>
+          <div className="grid gap-12 md:grid-cols-2">
+            {/* Natur */}
+            <div className="overflow-hidden rounded-2xl bg-white shadow-sm">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/images/nature.jpg"
+                  alt="Naturschutz"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-8">
+                <h3 className="mb-4 text-xl font-bold">
+                  Warum wir unsere Natur schützen
+                </h3>
+                <p className="text-muted">
+                  Millionen Hektar Wald gehen jährlich verloren. Laut dem UN-Bericht 2020
+                  schreitet der Waldverlust mit alarmierender Geschwindigkeit voran und
+                  bedroht die Artenvielfalt. Unternehmen tragen Verantwortung, ihren
+                  ökologischen Fußabdruck zu reduzieren.
+                </p>
+              </div>
+            </div>
+
+            {/* Humanitär */}
+            <div className="overflow-hidden rounded-2xl bg-white shadow-sm">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/images/humanitarian.jpg"
+                  alt="Humanitäre Unterstützung"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-8">
+                <h3 className="mb-4 text-xl font-bold">Humanitäre Unterstützung</h3>
+                <p className="text-muted">
+                  Laut UNHCR waren 2021 über 82 Millionen Menschen auf der Flucht. Durch
+                  gezielte CSR-Initiativen unterstützen wir Organisationen, die sich für
+                  Krisenhilfe und humanitäre Unterstützung einsetzen.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Weiterführende Links */}
+      <section className="py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <h2 className="mb-12 text-center text-3xl font-bold">Weiterführende Artikel</h2>
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="group overflow-hidden rounded-2xl border border-border">
+              <div className="relative aspect-[3/4] max-h-[300px]">
+                <Image
+                  src="/images/regenwald.jpg"
+                  alt="Regenwald"
+                  fill
+                  className="object-cover transition-transform group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="mb-2 text-lg font-bold">
+                  Der größte Regenwald der Erde
+                </h3>
+                <p className="text-sm text-muted">WWF Amazonien-Projekt</p>
+              </div>
+            </div>
+            <div className="group overflow-hidden rounded-2xl border border-border">
+              <div className="relative aspect-[3/4] max-h-[300px]">
+                <Image
+                  src="/images/menschenrechte.jpg"
+                  alt="Menschenrechte"
+                  fill
+                  className="object-cover transition-transform group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="mb-2 text-lg font-bold">
+                  Zur weltweiten Lage der Menschenrechte
+                </h3>
+                <p className="text-sm text-muted">Amnesty International</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
