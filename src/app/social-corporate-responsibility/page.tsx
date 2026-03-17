@@ -21,7 +21,7 @@ export default function SCRPage() {
       <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6">
           <h1
-            className="text-5xl font-normal tracking-tight text-foreground md:text-7xl"
+            className="animate-hero-title heading-upper text-5xl text-foreground md:text-7xl"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             SOCIAL CORPORATE
@@ -60,14 +60,14 @@ export default function SCRPage() {
           </h2>
           <div className="grid gap-12 md:grid-cols-2">
             {/* Natur */}
-            <div className="overflow-hidden rounded-2xl border border-border bg-surface">
+            <div className="group overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-primary/30">
               <div className="relative aspect-[4/3]">
                 <Image
                   src="/images/nature.jpg"
                   alt="Naturschutz"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
+                  className="img-zoom object-cover"
                 />
               </div>
               <div className="p-8">
@@ -87,14 +87,14 @@ export default function SCRPage() {
             </div>
 
             {/* Humanitär */}
-            <div className="overflow-hidden rounded-2xl border border-border bg-surface">
+            <div className="group overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-primary/30">
               <div className="relative aspect-[4/3]">
                 <Image
                   src="/images/humanitarian.jpg"
                   alt="Humanitäre Unterstützung"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
+                  className="img-zoom object-cover"
                 />
               </div>
               <div className="p-8">

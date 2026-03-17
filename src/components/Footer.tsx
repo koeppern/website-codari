@@ -31,7 +31,7 @@ const footerSections = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-black text-white">
+    <footer className="border-t border-border bg-gradient-to-b from-[#0a0a0a] to-black text-white">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           {/* Standorte & Contact */}

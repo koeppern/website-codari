@@ -107,7 +107,7 @@ export default function KontaktPage() {
               Standorte
             </h2>
             <div className="space-y-8">
-              <div className="rounded-xl border border-border bg-surface p-6">
+              <div className="rounded-xl border border-border bg-surface p-6 transition-colors hover:border-primary/30">
                 <h3
                   className="mb-2 text-lg font-normal text-foreground"
                   style={{ fontFamily: "var(--font-heading)" }}
@@ -117,7 +117,7 @@ export default function KontaktPage() {
                 <p className="text-muted">Breite Straße 3, 40213 Düsseldorf</p>
                 <p className="mt-2 text-sm text-muted">Mo--Fr 08:00--18:00 Uhr</p>
               </div>
-              <div className="rounded-xl border border-border bg-surface p-6">
+              <div className="rounded-xl border border-border bg-surface p-6 transition-colors hover:border-primary/30">
                 <h3
                   className="mb-2 text-lg font-normal text-foreground"
                   style={{ fontFamily: "var(--font-heading)" }}
@@ -127,7 +127,7 @@ export default function KontaktPage() {
                 <p className="text-muted">Eichendorffstraße 38, 47800 Krefeld</p>
                 <p className="mt-2 text-sm text-muted">Mo--Fr 08:00--18:00 Uhr</p>
               </div>
-              <div className="rounded-xl border border-border bg-surface p-6">
+              <div className="rounded-xl border border-border bg-surface p-6 transition-colors hover:border-primary/30">
                 <h3
                   className="mb-3 text-lg font-normal text-foreground"
                   style={{ fontFamily: "var(--font-heading)" }}

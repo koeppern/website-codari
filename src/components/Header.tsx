@@ -50,7 +50,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-black/90 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b border-white/5 bg-black/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link href="/" className="shrink-0">
           <Image
@@ -93,7 +93,7 @@ export default function Header() {
                   </svg>
                 </Link>
                 {dropdownOpen && (
-                  <div className="absolute left-0 top-full mt-2 w-48 rounded bg-surface py-2 shadow-lg">
+                  <div className="dropdown-menu absolute left-0 top-full mt-2 w-48 rounded-lg border border-border bg-surface py-2 shadow-xl shadow-black/50">
                     {item.children.map((child) => (
                       <Link
                         key={child.href}
@@ -126,7 +126,7 @@ export default function Header() {
 
         {/* Mobile Toggle */}
         <button
-          className="text-white lg:hidden"
+          className="p-2 text-white transition-colors hover:text-primary lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Menü schließen" : "Menü öffnen"}
           aria-expanded={mobileOpen}

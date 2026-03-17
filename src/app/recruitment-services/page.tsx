@@ -75,7 +75,7 @@ export default function RecruitmentServicesPage() {
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative mx-auto max-w-7xl px-6 py-24">
           <h1
-            className="text-5xl font-normal tracking-tight text-foreground md:text-7xl"
+            className="animate-hero-title text-5xl font-normal tracking-tight text-foreground md:text-7xl"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             RECRUITMENT
@@ -97,7 +97,7 @@ export default function RecruitmentServicesPage() {
           <div className="grid items-start gap-12 md:grid-cols-2">
             <div className="space-y-8">
               {services.map((service) => (
-                <div key={service.title} className="rounded-xl border border-border bg-surface p-6">
+                <div key={service.title} className="card-interactive rounded-xl border border-border bg-surface p-6">
                   <h3 className="mb-3 text-xl font-normal text-primary" style={{ fontFamily: "var(--font-heading)" }}>
                     {service.title}
                   </h3>
@@ -161,7 +161,7 @@ export default function RecruitmentServicesPage() {
             {testimonials.map((t) => (
               <div
                 key={t.author}
-                className="rounded-2xl border border-border bg-surface p-8"
+                className="card-interactive rounded-2xl border border-border bg-surface p-8"
               >
                 <svg className="mb-4 h-8 w-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
@@ -178,22 +178,21 @@ export default function RecruitmentServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="border-t border-border bg-surface py-16 text-center">
-        <h2
-          className="mb-4 text-3xl font-normal text-foreground"
-          style={{ fontFamily: "var(--font-heading)" }}
-        >
-          Bereit, Ihr Team zu verstärken?
-        </h2>
-        <p className="mb-8 text-lg text-muted">
-          Kontaktieren Sie uns für ein kostenloses Beratungsgespräch.
-        </p>
-        <Link
-          href="/kontakt"
-          className="inline-block rounded-lg bg-accent px-8 py-3 font-semibold text-white transition-colors hover:bg-accent/80"
-        >
-          Kontakt aufnehmen
-        </Link>
+      <section className="cta-gradient border-t border-border py-16 text-center">
+        <div className="relative">
+          <h2
+            className="mb-4 text-3xl font-normal text-foreground"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Bereit, Ihr Team zu verstärken?
+          </h2>
+          <p className="mb-8 text-lg text-muted">
+            Kontaktieren Sie uns für ein kostenloses Beratungsgespräch.
+          </p>
+          <Link href="/kontakt" className="btn-primary">
+            Kontakt aufnehmen
+          </Link>
+        </div>
       </section>
     </>
   );

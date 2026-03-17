@@ -78,17 +78,17 @@ export default function EmployerBrandingPage() {
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative mx-auto max-w-7xl px-6 py-24">
           <h1
-            className="max-w-3xl text-4xl font-normal tracking-tight text-foreground md:text-6xl"
+            className="animate-hero-title max-w-3xl text-4xl font-normal tracking-tight text-foreground md:text-6xl"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Employer Branding
           </h1>
-          <p className="mt-4 max-w-2xl text-xl text-muted">
+          <p className="animate-hero-sub mt-4 max-w-2xl text-xl text-muted">
             Der Erfolgsfaktor für Unternehmen mit Vision
           </p>
           <Link
             href="/kontakt"
-            className="mt-8 inline-block rounded-lg bg-accent px-8 py-3 font-semibold text-white transition-colors hover:bg-accent/80"
+            className="animate-hero-cta btn-primary mt-8"
           >
             Kontakt
           </Link>
@@ -112,7 +112,7 @@ export default function EmployerBrandingPage() {
             {servicePortfolio.map((item) => (
               <li
                 key={item}
-                className="flex items-start gap-3 rounded-lg border border-border bg-surface p-4"
+                className="flex items-start gap-3 rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary/50"
               >
                 <svg
                   className="mt-0.5 h-5 w-5 shrink-0 text-primary"
@@ -141,7 +141,7 @@ export default function EmployerBrandingPage() {
             {mainServices.map((service) => (
               <div
                 key={service.title}
-                className="rounded-2xl border border-border bg-surface p-8"
+                className="card-interactive rounded-2xl border border-border bg-surface p-8"
               >
                 <h3
                   className="mb-4 text-xl font-normal text-primary"
@@ -157,22 +157,21 @@ export default function EmployerBrandingPage() {
       </section>
 
       {/* CTA */}
-      <section className="border-t border-border bg-surface py-16 text-center">
-        <h2
-          className="mb-4 text-3xl font-normal text-foreground"
-          style={{ fontFamily: "var(--font-heading)" }}
-        >
-          Stärken Sie Ihre Arbeitgebermarke
-        </h2>
-        <p className="mb-8 text-lg text-muted">
-          Lassen Sie uns gemeinsam Ihre Employer-Branding-Strategie entwickeln.
-        </p>
-        <Link
-          href="/kontakt"
-          className="inline-block rounded-lg bg-accent px-8 py-3 font-semibold text-white transition-colors hover:bg-accent/80"
-        >
-          Kostenloses Beratungsgespräch
-        </Link>
+      <section className="cta-gradient border-t border-border py-16 text-center">
+        <div className="relative">
+          <h2
+            className="mb-4 text-3xl font-normal text-foreground"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Stärken Sie Ihre Arbeitgebermarke
+          </h2>
+          <p className="mb-8 text-lg text-muted">
+            Lassen Sie uns gemeinsam Ihre Employer-Branding-Strategie entwickeln.
+          </p>
+          <Link href="/kontakt" className="btn-primary">
+            Kostenloses Beratungsgespräch
+          </Link>
+        </div>
       </section>
     </>
   );

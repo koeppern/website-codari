@@ -46,12 +46,12 @@ export default function FurUnternehmenPage() {
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative mx-auto max-w-7xl px-6 py-24">
           <h1
-            className="text-5xl font-normal tracking-tight text-foreground md:text-7xl"
+            className="animate-hero-title heading-upper text-5xl text-foreground md:text-7xl"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             WACHSTUM &amp; EXPERTISE
           </h1>
-          <p className="mt-4 text-xl text-muted">Ihr Vorhaben, unsere Netzwerke</p>
+          <p className="animate-hero-sub mt-4 text-xl text-muted">Ihr Vorhaben, unsere Netzwerke</p>
         </div>
       </section>
 
@@ -71,7 +71,7 @@ export default function FurUnternehmenPage() {
       {/* Festanstellung & Freelancer */}
       <section className="border-t border-border bg-background py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-border bg-surface p-8">
+          <div className="card-interactive rounded-2xl border border-border bg-surface p-8">
             <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
               Festanstellung
             </p>
@@ -87,7 +87,7 @@ export default function FurUnternehmenPage() {
               Branchenkenntnisse für langfristige Mitarbeiterbeziehungen.
             </p>
           </div>
-          <div className="rounded-2xl border border-border bg-surface p-8">
+          <div className="card-interactive rounded-2xl border border-border bg-surface p-8">
             <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
               Freelancer
             </p>
@@ -124,7 +124,7 @@ export default function FurUnternehmenPage() {
             {itServices.map((service) => (
               <div
                 key={service}
-                className="rounded-xl border border-border bg-surface p-4 text-center text-sm font-medium text-muted transition-colors hover:border-primary hover:text-primary"
+                className="rounded-xl border border-border bg-surface p-4 text-center text-sm font-medium text-muted transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary hover:shadow-[0_4px_15px_var(--color-primary-glow)]"
               >
                 {service}
               </div>

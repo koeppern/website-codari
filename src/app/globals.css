@@ -3,7 +3,9 @@
 
 @theme inline {
   --color-primary: #3de2e5;
+  --color-primary-glow: #3de2e540;
   --color-accent: #fc5185;
+  --color-accent-glow: #fc518540;
   --color-background: #000000;
   --color-foreground: #ffffff;
   --color-muted: #a0a0a0;
@@ -26,4 +28,176 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+}
+
+/* ===== Page-load hero entrance ===== */
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes hero-line-expand {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.animate-hero-title {
+  animation: hero-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-hero-sub {
+  animation: hero-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+.animate-hero-cta {
+  animation: hero-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+.animate-fade-in {
+  animation: hero-fade-in 0.6s ease both;
+}
+
+/* ===== Scroll-triggered reveal (CSS-only, progressive enhancement) ===== */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal-section {
+  animation: reveal-up linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 25%;
+}
+
+/* Fallback for browsers without animation-timeline */
+@supports not (animation-timeline: view()) {
+  .reveal-section {
+    animation: hero-fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+/* ===== Interactive card ===== */
+.card-interactive {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.card-interactive:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 30px var(--color-primary-glow);
+}
+
+/* ===== CTA gradient background ===== */
+.cta-gradient {
+  background: linear-gradient(135deg, #111111 0%, #1a0a2e 50%, #111111 100%);
+  position: relative;
+}
+
+.cta-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, var(--color-accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ===== Buttons ===== */
+.btn-primary {
+  display: inline-block;
+  border-radius: 0.5rem;
+  background: var(--color-accent);
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  color: white;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s ease,
+              background 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--color-accent-glow);
+  background: #e8456f;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* ===== Image hover zoom (for cards with images) ===== */
+.img-zoom {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .img-zoom,
+.card-interactive:hover .img-zoom {
+  transform: scale(1.05);
+}
+
+/* ===== Subtle glow accent line under sections ===== */
+.glow-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+  opacity: 0.3;
+}
+
+/* ===== Stats counter glow ===== */
+.stat-value {
+  text-shadow: 0 0 30px var(--color-primary-glow);
+}
+
+/* ===== Uppercase heading refinement ===== */
+.heading-upper {
+  letter-spacing: 0.05em;
+  font-weight: 400;
+}
+
+/* ===== Step circle pulse ===== */
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 var(--color-primary-glow); }
+  70% { box-shadow: 0 0 0 12px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+.step-circle:hover {
+  animation: pulse-ring 1s ease infinite;
+  border-color: var(--color-primary);
+}
+
+/* ===== Link arrow slide ===== */
+.link-arrow svg {
+  transition: transform 0.2s ease;
+}
+
+.link-arrow:hover svg {
+  transform: translateX(4px);
+}
+
+/* ===== Dropdown animation ===== */
+@keyframes dropdown-enter {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-menu {
+  animation: dropdown-enter 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ===== Focus visible ring ===== */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ===== Selection color ===== */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-background);
 }

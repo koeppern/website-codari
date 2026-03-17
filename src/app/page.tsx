@@ -37,19 +37,19 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative mx-auto max-w-7xl px-6 py-24 text-center">
           <h1
-            className="mb-2 text-7xl font-normal tracking-tight text-foreground md:text-9xl"
+            className="animate-hero-title mb-2 text-7xl font-normal tracking-tight text-foreground md:text-9xl"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             CODARI.
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-xl text-muted md:text-2xl">
+          <p className="animate-hero-sub mx-auto mt-6 max-w-2xl text-xl text-muted md:text-2xl">
             Nachhaltige Unterstützung in den Bereichen Employer Branding, HR- und
             Recruitment-Services in der DACH-Region.
           </p>
-          <div className="mt-8">
+          <div className="animate-hero-cta mt-8">
             <Link
               href="#services"
-              className="rounded-lg bg-accent px-8 py-3 font-semibold text-white transition-colors hover:bg-accent/80"
+              className="btn-primary"
             >
               Mehr erfahren
             </Link>
@@ -58,11 +58,11 @@ export default function Home() {
       </section>
 
       {/* Marke stärken & Fachkräfte sichern */}
-      <section className="border-t border-border bg-background py-24">
+      <section className="reveal-section border-t border-border bg-background py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 md:grid-cols-2">
           <div>
             <h2
-              className="mb-6 text-3xl font-normal tracking-tight text-foreground md:text-4xl"
+              className="heading-upper mb-6 text-3xl tracking-tight text-foreground md:text-4xl"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               MARKE STÄRKEN &amp; FACHKRÄFTE SICHERN
@@ -76,13 +76,13 @@ export default function Home() {
             </p>
             <div className="mt-10 flex gap-12">
               <div>
-                <p className="text-4xl font-normal text-primary" style={{ fontFamily: "var(--font-heading)" }}>
+                <p className="stat-value text-4xl font-normal text-primary" style={{ fontFamily: "var(--font-heading)" }}>
                   120+
                 </p>
                 <p className="mt-1 text-sm text-muted">Vermittelte Fachkräfte</p>
               </div>
               <div>
-                <p className="text-4xl font-normal text-primary" style={{ fontFamily: "var(--font-heading)" }}>
+                <p className="stat-value text-4xl font-normal text-primary" style={{ fontFamily: "var(--font-heading)" }}>
                   1500+
                 </p>
                 <p className="mt-1 text-sm text-muted">Kontaktierte Unternehmen</p>
@@ -102,11 +102,11 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section id="services" className="border-t border-border bg-background py-24">
+      <section id="services" className="reveal-section border-t border-border bg-background py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 md:grid-cols-2">
             {/* Recruitment */}
-            <div className="rounded-2xl border border-border bg-surface p-8">
+            <div className="card-interactive rounded-2xl border border-border bg-surface p-8">
               <h3
                 className="mb-3 text-2xl font-normal text-foreground"
                 style={{ fontFamily: "var(--font-heading)" }}
@@ -120,7 +120,7 @@ export default function Home() {
               </p>
               <Link
                 href="/recruitment-services"
-                className="inline-flex items-center font-semibold text-primary hover:underline"
+                className="link-arrow inline-flex items-center font-semibold text-primary hover:underline"
               >
                 Mehr erfahren
                 <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -130,7 +130,7 @@ export default function Home() {
             </div>
 
             {/* Employer Branding */}
-            <div className="rounded-2xl border border-border bg-surface p-8">
+            <div className="card-interactive rounded-2xl border border-border bg-surface p-8">
               <h3
                 className="mb-3 text-2xl font-normal text-foreground"
                 style={{ fontFamily: "var(--font-heading)" }}
@@ -144,7 +144,7 @@ export default function Home() {
               </p>
               <Link
                 href="/employer-branding"
-                className="inline-flex items-center font-semibold text-primary hover:underline"
+                className="link-arrow inline-flex items-center font-semibold text-primary hover:underline"
               >
                 Mehr erfahren
                 <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -157,10 +157,10 @@ export default function Home() {
       </section>
 
       {/* Gemeinsam zum Erfolg */}
-      <section className="border-t border-border bg-background py-24">
+      <section className="reveal-section border-t border-border bg-background py-24">
         <div className="mx-auto max-w-7xl px-6">
           <h2
-            className="mb-16 text-center text-3xl font-normal text-foreground md:text-4xl"
+            className="heading-upper mb-16 text-center text-3xl text-foreground md:text-4xl"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             GEMEINSAM ZUM ERFOLG
@@ -184,7 +184,7 @@ export default function Home() {
               },
             ].map((item) => (
               <div key={item.step} className="text-center">
-                <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-border bg-surface text-2xl font-normal text-primary">
+                <div className="step-circle mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-border bg-surface text-2xl font-normal text-primary transition-colors">
                   {item.step}
                 </div>
                 <h3
@@ -198,10 +198,7 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-12 text-center">
-            <Link
-              href="/kontakt"
-              className="rounded-lg bg-accent px-8 py-3 font-semibold text-white transition-colors hover:bg-accent/80"
-            >
+            <Link href="/kontakt" className="btn-primary">
               Kontakt
             </Link>
           </div>

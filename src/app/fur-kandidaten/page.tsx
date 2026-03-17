@@ -31,12 +31,12 @@ export default function FurKandidatenPage() {
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative mx-auto max-w-7xl px-6 py-24">
           <h1
-            className="text-5xl font-normal tracking-tight text-foreground md:text-7xl"
+            className="animate-hero-title heading-upper text-5xl text-foreground md:text-7xl"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             ZUKUNFT &amp; KARRIERE
           </h1>
-          <p className="mt-4 text-xl text-muted">
+          <p className="animate-hero-sub mt-4 text-xl text-muted">
             Erkunden Sie Ihre Karrieremöglichkeiten in dynamischen und zukunftsorientierten
             Branchen
           </p>
@@ -65,7 +65,7 @@ export default function FurKandidatenPage() {
       <section className="border-t border-border bg-background py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 md:grid-cols-2">
-            <div className="rounded-2xl border border-border bg-surface p-8">
+            <div className="card-interactive rounded-2xl border border-border bg-surface p-8">
               <p className="mb-2 text-sm font-semibold italic text-primary">Innovate</p>
               <h3
                 className="mb-4 text-2xl font-normal text-foreground"
@@ -79,7 +79,7 @@ export default function FurKandidatenPage() {
                 Sie Ihre Expertise, um Teil der nächsten technologischen Revolution zu werden.
               </p>
             </div>
-            <div className="rounded-2xl border border-border bg-surface p-8">
+            <div className="card-interactive rounded-2xl border border-border bg-surface p-8">
               <p className="mb-2 text-sm font-semibold italic text-primary">Lead</p>
               <h3
                 className="mb-4 text-2xl font-normal text-foreground"
@@ -98,25 +98,27 @@ export default function FurKandidatenPage() {
       </section>
 
       {/* CTA */}
-      <section className="border-t border-border bg-surface py-16 text-center">
-        <h2
-          className="mb-4 text-3xl font-normal text-foreground"
-          style={{ fontFamily: "var(--font-heading)" }}
-        >
-          Bereit für den nächsten Karriereschritt?
-        </h2>
-        <p className="mb-8 text-lg text-muted">
-          Entdecken Sie unsere aktuellen Stellenanzeigen und finden Sie Ihre nächste
-          Herausforderung.
-        </p>
-        <a
-          href="https://careers.codari.de/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block rounded-lg bg-accent px-8 py-3 font-semibold text-white transition-colors hover:bg-accent/80"
-        >
-          Stellenanzeigen
-        </a>
+      <section className="cta-gradient border-t border-border py-16 text-center">
+        <div className="relative">
+          <h2
+            className="mb-4 text-3xl font-normal text-foreground"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Bereit für den nächsten Karriereschritt?
+          </h2>
+          <p className="mb-8 text-lg text-muted">
+            Entdecken Sie unsere aktuellen Stellenanzeigen und finden Sie Ihre nächste
+            Herausforderung.
+          </p>
+          <a
+            href="https://careers.codari.de/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+          >
+            Stellenanzeigen
+          </a>
+        </div>
       </section>
     </>
   );

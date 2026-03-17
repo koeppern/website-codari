@@ -31,7 +31,7 @@ export default function UberUnsPage() {
         <div className="relative flex h-full items-center">
           <div className="mx-auto max-w-7xl px-6">
             <h1
-              className="text-5xl font-normal text-foreground md:text-7xl"
+              className="animate-hero-title text-5xl font-normal text-foreground md:text-7xl"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               Über Uns
@@ -61,7 +61,7 @@ export default function UberUnsPage() {
       {/* Der Beginn */}
       <section className="border-t border-border bg-surface py-24">
         <div className="mx-auto max-w-4xl px-6">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
             Der Beginn einer Partnerschaft
           </p>
           <h2
