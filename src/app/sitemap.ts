@@ -1,18 +1,31 @@
 import type { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://codari.de";
+const locales = ["de", "en"];
+const baseUrl = "https://codari.de";
 
-  return [
-    { url: baseUrl, lastModified: new Date(), changeFrequency: "monthly", priority: 1.0 },
-    { url: `${baseUrl}/recruitment-services`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${baseUrl}/employer-branding`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${baseUrl}/fur-unternehmen`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${baseUrl}/fur-kandidaten`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${baseUrl}/uber-uns`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${baseUrl}/social-corporate-responsibility`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
-    { url: `${baseUrl}/kontakt`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${baseUrl}/impressum`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
-    { url: `${baseUrl}/datenschutzerklarung`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
-  ];
+const pages = [
+  { path: "", priority: 1.0, changeFrequency: "monthly" as const },
+  { path: "/fur-unternehmen", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/fur-kandidaten", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/employer-branding", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/uber-uns", priority: 0.7, changeFrequency: "monthly" as const },
+  { path: "/kontakt", priority: 0.7, changeFrequency: "monthly" as const },
+  { path: "/impressum", priority: 0.3, changeFrequency: "yearly" as const },
+  { path: "/datenschutzerklarung", priority: 0.3, changeFrequency: "yearly" as const },
+];
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return pages.flatMap((page) =>
+    locales.map((locale) => ({
+      url: `${baseUrl}/${locale}${page.path}`,
+      lastModified: new Date(),
+      changeFrequency: page.changeFrequency,
+      priority: page.priority,
+      alternates: {
+        languages: Object.fromEntries(
+          locales.map((l) => [l, `${baseUrl}/${l}${page.path}`])
+        ),
+      },
+    }))
+  );
 }

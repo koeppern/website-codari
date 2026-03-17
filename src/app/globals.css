@@ -2,18 +2,22 @@
 @plugin "@tailwindcss/typography";
 
 @theme inline {
-  --color-primary: #3de2e5;
-  --color-primary-glow: #3de2e540;
-  --color-accent: #fc5185;
-  --color-accent-glow: #fc518540;
-  --color-background: #000000;
-  --color-foreground: #ffffff;
-  --color-muted: #a0a0a0;
-  --color-border: #2a2a2a;
-  --color-surface: #111111;
-  --color-surface-light: #f2f3f6;
-  --font-heading: var(--font-montserrat, 'Montserrat', sans-serif);
-  --font-body: var(--font-dm-sans, 'DM Sans', sans-serif);
+  --color-primary: #4f46e5;
+  --color-primary-dark: #3730a3;
+  --color-primary-light: #818cf8;
+  --color-primary-bg: #eef2ff;
+  --color-primary-glow: #4f46e540;
+  --color-accent: #0ea5e9;
+  --color-accent-dark: #0284c7;
+  --color-accent-glow: #0ea5e940;
+  --color-background: #ffffff;
+  --color-foreground: #0f172a;
+  --color-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-surface: #f8fafc;
+  --color-surface-dark: #0f172a;
+  --font-heading: var(--font-inter, 'Inter', sans-serif);
+  --font-body: var(--font-inter, 'Inter', sans-serif);
 }
 
 body {
@@ -41,11 +45,6 @@ h1, h2, h3, h4, h5, h6 {
   to { opacity: 1; }
 }
 
-@keyframes hero-line-expand {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
-
 .animate-hero-title {
   animation: hero-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -60,25 +59,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .animate-fade-in {
   animation: hero-fade-in 0.6s ease both;
-}
-
-/* ===== Scroll-triggered reveal (CSS-only, progressive enhancement) ===== */
-@keyframes reveal-up {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.reveal-section {
-  animation: reveal-up linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 25%;
-}
-
-/* Fallback for browsers without animation-timeline */
-@supports not (animation-timeline: view()) {
-  .reveal-section {
-    animation: hero-fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
 }
 
 /* ===== Interactive card ===== */
@@ -96,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ===== CTA gradient background ===== */
 .cta-gradient {
-  background: linear-gradient(135deg, #111111 0%, #1a0a2e 50%, #111111 100%);
+  background: linear-gradient(135deg, var(--color-primary-bg) 0%, #dbeafe 50%, var(--color-primary-bg) 100%);
   position: relative;
 }
 
@@ -104,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, var(--color-accent-glow) 0%, transparent 70%);
+  background: radial-gradient(ellipse at 50% 0%, var(--color-primary-glow) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -112,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-primary {
   display: inline-block;
   border-radius: 0.5rem;
-  background: var(--color-accent);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
   padding: 0.75rem 2rem;
   font-weight: 600;
   color: white;
@@ -123,15 +103,45 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px var(--color-accent-glow);
-  background: #e8456f;
+  box-shadow: 0 6px 20px var(--color-primary-glow);
 }
 
 .btn-primary:active {
   transform: translateY(0);
 }
 
-/* ===== Image hover zoom (for cards with images) ===== */
+/* ===== Gradient border button ===== */
+.btn-gradient-border {
+  position: relative;
+  display: inline-block;
+  padding: 0.625rem 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: var(--color-background);
+  border-radius: 0.5rem;
+  z-index: 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.btn-gradient-border:hover {
+  color: white;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  transform: translateY(-2px);
+}
+
+/* ===== Image hover zoom ===== */
 .img-zoom {
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -141,7 +151,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.05);
 }
 
-/* ===== Subtle glow accent line under sections ===== */
+/* ===== Glow line ===== */
 .glow-line {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
@@ -153,7 +163,7 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: 0 0 30px var(--color-primary-glow);
 }
 
-/* ===== Uppercase heading refinement ===== */
+/* ===== Uppercase heading ===== */
 .heading-upper {
   letter-spacing: 0.05em;
   font-weight: 400;
@@ -198,6 +208,6 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ===== Selection color ===== */
 ::selection {
-  background: var(--color-primary);
-  color: var(--color-background);
+  background: var(--color-primary-light);
+  color: white;
 }

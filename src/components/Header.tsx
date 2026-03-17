@@ -1,31 +1,33 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
-import { usePathname } from "next/navigation";
-
-const navItems = [
-  { label: "Home", href: "/" },
-  {
-    label: "HR Services",
-    href: "/recruitment-services",
-    children: [
-      { label: "Für Unternehmen", href: "/fur-unternehmen" },
-      { label: "Für Kandidaten", href: "/fur-kandidaten" },
-    ],
-  },
-  { label: "Employer Branding", href: "/employer-branding" },
-  { label: "Über Uns", href: "/uber-uns" },
-  { label: "SCR", href: "/social-corporate-responsibility" },
-  { label: "Kontakt", href: "/kontakt" },
-];
+import { Link, usePathname } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
+import LanguageSwitcher from "./LanguageSwitcher";
+import GradientBorderButton from "./GradientBorderButton";
 
 export default function Header() {
+  const t = useTranslations("Nav");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+
+  const navItems = [
+    { label: t("home"), href: "/" as const },
+    {
+      label: t("hrServices"),
+      href: "/fur-unternehmen" as const,
+      children: [
+        { label: t("furUnternehmen"), href: "/fur-unternehmen" as const },
+        { label: t("furKandidaten"), href: "/fur-kandidaten" as const },
+      ],
+    },
+    { label: t("employerBranding"), href: "/employer-branding" as const },
+    { label: t("uberUns"), href: "/uber-uns" as const },
+    { label: t("kontakt"), href: "/kontakt" as const },
+  ];
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -50,7 +52,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/5 bg-black/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-border bg-white/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link href="/" className="shrink-0">
           <Image
@@ -59,7 +61,6 @@ export default function Header() {
             width={140}
             height={35}
             priority
-            className="brightness-0 invert"
           />
         </Link>
 
@@ -80,12 +81,11 @@ export default function Header() {
                   href={item.href}
                   aria-haspopup="true"
                   aria-expanded={dropdownOpen}
-                  className={`font-heading text-sm transition-colors ${
-                    isActive(item.href) || isActive("/fur-unternehmen") || isActive("/fur-kandidaten")
+                  className={`text-sm font-medium transition-colors ${
+                    isActive(item.href) || isActive("/fur-kandidaten")
                       ? "text-primary"
-                      : "text-white hover:text-primary"
+                      : "text-foreground hover:text-primary"
                   }`}
-                  style={{ fontFamily: "var(--font-heading)" }}
                 >
                   {item.label}
                   <svg className="ml-1 inline h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -93,15 +93,14 @@ export default function Header() {
                   </svg>
                 </Link>
                 {dropdownOpen && (
-                  <div className="dropdown-menu absolute left-0 top-full mt-2 w-48 rounded-lg border border-border bg-surface py-2 shadow-xl shadow-black/50">
+                  <div className="dropdown-menu absolute left-0 top-full mt-2 w-48 rounded-lg border border-border bg-white py-2 shadow-lg">
                     {item.children.map((child) => (
                       <Link
                         key={child.href}
                         href={child.href}
                         className={`block px-4 py-2 text-sm transition-colors ${
-                          isActive(child.href) ? "text-primary" : "text-white hover:text-primary"
+                          isActive(child.href) ? "text-primary" : "text-foreground hover:text-primary"
                         }`}
-                        style={{ fontFamily: "var(--font-heading)" }}
                       >
                         {child.label}
                       </Link>
@@ -113,10 +112,9 @@ export default function Header() {
               <Link
                 key={item.label}
                 href={item.href}
-                className={`text-sm transition-colors ${
-                  isActive(item.href) ? "text-primary" : "text-white hover:text-primary"
+                className={`text-sm font-medium transition-colors ${
+                  isActive(item.href) ? "text-primary" : "text-foreground hover:text-primary"
                 }`}
-                style={{ fontFamily: "var(--font-heading)" }}
               >
                 {item.label}
               </Link>
@@ -124,33 +122,41 @@ export default function Header() {
           )}
         </nav>
 
+        {/* Right side: Language + CTA */}
+        <div className="hidden items-center gap-4 lg:flex">
+          <LanguageSwitcher />
+          <GradientBorderButton href="/kontakt">{t("cta")}</GradientBorderButton>
+        </div>
+
         {/* Mobile Toggle */}
-        <button
-          className="p-2 text-white transition-colors hover:text-primary lg:hidden"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? "Menü schließen" : "Menü öffnen"}
-          aria-expanded={mobileOpen}
-          aria-controls="mobile-nav"
-        >
-          <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            {mobileOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
+        <div className="flex items-center gap-3 lg:hidden">
+          <LanguageSwitcher />
+          <button
+            className="p-2 text-foreground transition-colors hover:text-primary"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? t("menuClose") : t("menuOpen")}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-nav"
+          >
+            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              {mobileOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* Mobile Nav */}
       {mobileOpen && (
-        <nav id="mobile-nav" aria-label="Mobile Navigation" className="border-t border-border bg-black px-6 py-4 lg:hidden">
+        <nav id="mobile-nav" aria-label="Mobile Navigation" className="border-t border-border bg-white px-6 py-4 lg:hidden">
           {navItems.map((item) => (
             <div key={item.label}>
               <Link
                 href={item.href}
-                className={`block py-2 text-sm ${isActive(item.href) ? "text-primary" : "text-white"}`}
-                style={{ fontFamily: "var(--font-heading)" }}
+                className={`block py-2 text-sm font-medium ${isActive(item.href) ? "text-primary" : "text-foreground"}`}
                 onClick={() => setMobileOpen(false)}
               >
                 {item.label}
@@ -160,7 +166,6 @@ export default function Header() {
                   key={child.href}
                   href={child.href}
                   className={`block py-2 pl-4 text-sm ${isActive(child.href) ? "text-primary" : "text-muted"}`}
-                  style={{ fontFamily: "var(--font-heading)" }}
                   onClick={() => setMobileOpen(false)}
                 >
                   {child.label}
@@ -168,6 +173,15 @@ export default function Header() {
               ))}
             </div>
           ))}
+          <div className="mt-4 border-t border-border pt-4">
+            <Link
+              href="/kontakt"
+              className="btn-primary block text-center text-sm"
+              onClick={() => setMobileOpen(false)}
+            >
+              {t("cta")}
+            </Link>
+          </div>
         </nav>
       )}
     </header>

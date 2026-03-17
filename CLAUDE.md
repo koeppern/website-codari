@@ -4,12 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Nachbau der [codari.de](https://codari.de) Website — Employer Branding & HR Beratung, DACH-Region. Ursprünglich Zyro/Astro, jetzt Next.js auf Vercel.
+Nachbau der [codari.de](https://codari.de) Website — IT & Engineering Recruiting, DACH-Region. Next.js auf Vercel.
 
 ## Tech Stack
 
 - Next.js 16 (App Router), React 19, TypeScript (strict)
 - Tailwind CSS v4 (`@tailwindcss/postcss`) mit Custom Theme in `globals.css`
+- next-intl (Zweisprachig DE/EN, Locale-Prefix `/de/...` und `/en/...`)
+- Framer Motion (Scroll-Animationen via `FadeIn` Komponente)
 - Deployment: Vercel (Auto-Deploy bei Push auf `main`)
 
 ## Commands
@@ -22,17 +24,28 @@ npm run lint     # ESLint (Core Web Vitals + TypeScript)
 
 ## Architecture
 
-Alle Seiten sind **Server Components** (statisch generiert) — kein dynamisches Data Fetching, keine API Routes. Nur `Header.tsx` nutzt `"use client"` für Mobile-Navigation.
+**i18n:** next-intl mit `src/i18n/routing.ts`, `request.ts`, `navigation.ts`. Middleware in `src/middleware.ts`. Texte in `messages/de.json` und `messages/en.json`.
 
-**Layout:** Einziges Root-Layout (`src/app/layout.tsx`) mit Header + Footer.
+**Seiten:** Alle unter `src/app/[locale]/`. Server Components mit `getTranslations()` + `setRequestLocale()`.
+
+**Layout:** Root Layout (`src/app/layout.tsx`) minimal, Locale Layout (`src/app/[locale]/layout.tsx`) mit `NextIntlClientProvider`, Header, Footer.
 
 **Components:** `src/components/` — flache Struktur:
-- `Header.tsx` — Client Component mit Mobile-Menü und HR-Services-Dropdown
-- `Footer.tsx` — Server Component mit Kontaktdaten und Standorten
+- `Header.tsx` — Client Component mit Mobile-Menü, Dropdown, LanguageSwitcher, GradientBorderButton
+- `Footer.tsx` — Server Component mit Locale-aware Links
+- `FadeIn.tsx` — Client Component, Framer Motion scroll-triggered
+- `CounterAnimation.tsx` — Client Component, IntersectionObserver + rAF
+- `WorldMap.tsx` — Server Component, Inline-SVG Weltkarte
+- `GradientBorderButton.tsx` — Server Component, CSS gradient-border
+- `LanguageSwitcher.tsx` — Client Component, DE/EN Toggle
+- `ContactForm.tsx` — Client Component, deaktiviert
 
 **Styling:** Tailwind Utility Classes inline. Custom Farben via `@theme inline` in `globals.css`:
-- Primary: `#673de6` (Purple), Dark: `#5025d1`, Light: `#8c85ff`
-- Background: `primary-bg` (`#f3f0ff`)
+- Primary: `#4f46e5` (Indigo 600), Dark: `#3730a3`, Light: `#818cf8`
+- Accent: `#0ea5e9` (Sky 500)
+- Background: `#ffffff`, Foreground: `#0f172a` (Slate 900)
+
+**Font:** Inter (400, 500, 600, 700)
 
 **Bilder:** `public/images/`, via `next/image` mit `fill` + `object-cover`.
 
@@ -40,7 +53,9 @@ Alle Seiten sind **Server Components** (statisch generiert) — kein dynamisches
 
 ## Aktueller Stand
 
-- Inhalte hardcoded in JSX, kein CMS
-- Kontaktformulare (`/kontakt`, `/fur-unternehmen`) sind deaktiviert — Verweis auf E-Mail/Telefon
-- Nur Deutsch, kein i18n
+- Zweisprachig DE/EN mit URL-Prefix
+- IT & Engineering Fokus (kein Pharma/Healthcare/Medizin)
+- Kontaktformulare deaktiviert — Verweis auf E-Mail/Telefon
+- SCR-Seite entfernt (301-Redirect auf Home)
+- Recruitment-Services entfernt (301-Redirect auf Für Unternehmen)
 - Keine Tests konfiguriert

@@ -1,67 +1,68 @@
-import Link from "next/link";
 import Image from "next/image";
-
-const footerSections = [
-  {
-    title: "CODARI",
-    links: [
-      { label: "Informationstechnologie", href: "/fur-unternehmen" },
-      { label: "Ingenieurswesen", href: "/fur-unternehmen" },
-      { label: "Gesundheitswesen", href: "/fur-unternehmen" },
-      { label: "Führungskräfte", href: "/fur-unternehmen" },
-    ],
-  },
-  {
-    title: "CODARI 360°",
-    links: [
-      { label: "Prozesseinführung", href: "/employer-branding" },
-      { label: "Audits & Kampagnen", href: "/employer-branding" },
-      { label: "Personalentwicklung", href: "/employer-branding" },
-    ],
-  },
-  {
-    title: "",
-    links: [
-      { label: "Über Uns", href: "/uber-uns" },
-      { label: "SCR-Programm", href: "/social-corporate-responsibility" },
-      { label: "Stellenanzeigen", href: "https://careers.codari.de/", external: true },
-    ],
-  },
-];
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function Footer() {
+  const t = useTranslations("Footer");
+
+  const serviceSections = [
+    {
+      title: t("services"),
+      links: [
+        { label: t("itRecruiting"), href: "/fur-unternehmen" as const },
+        { label: t("engineeringRecruiting"), href: "/fur-unternehmen" as const },
+        { label: t("executiveSearch"), href: "/fur-unternehmen" as const },
+      ],
+    },
+    {
+      title: t("codari360"),
+      links: [
+        { label: t("prozesseinfuehrung"), href: "/employer-branding" as const },
+        { label: t("auditsKampagnen"), href: "/employer-branding" as const },
+        { label: t("personalentwicklung"), href: "/employer-branding" as const },
+      ],
+    },
+    {
+      title: "",
+      links: [
+        { label: t("ueberUns"), href: "/uber-uns" as const },
+        { label: t("stellenanzeigen"), href: "https://careers.codari.de/" as const, external: true },
+      ],
+    },
+  ];
+
   return (
-    <footer className="border-t border-border bg-gradient-to-b from-[#0a0a0a] to-black text-white">
+    <footer className="border-t border-white/10 bg-surface-dark text-white">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           {/* Standorte & Contact */}
           <div className="lg:col-span-2">
-            <h3 className="mb-6 text-sm font-bold" style={{ fontFamily: "var(--font-heading)" }}>
-              Standorte
+            <h3 className="mb-6 text-sm font-bold">
+              {t("standorte")}
             </h3>
-            <div className="space-y-4 text-sm text-muted">
+            <div className="space-y-4 text-sm text-slate-400">
               <div>
-                <p className="font-medium text-white">Standort Düsseldorf</p>
+                <p className="font-medium text-white">{t("standortDuesseldorf")}</p>
                 <p>Breite Straße 3</p>
                 <p>40213 Düsseldorf</p>
               </div>
               <div>
-                <p className="font-medium text-white">Standort Krefeld</p>
+                <p className="font-medium text-white">{t("standortKrefeld")}</p>
                 <p>Eichendorffstraße 38</p>
                 <p>47800 Krefeld</p>
               </div>
             </div>
-            <div className="mt-6 space-y-1 text-sm text-muted">
-              <p>E-Mail: <a href="mailto:info@codari.de" className="text-white hover:text-primary transition-colors">info@codari.de</a></p>
-              <p>Telefon: <a href="tel:+4921516476293" className="text-white hover:text-primary transition-colors">+49 2151 6476293</a></p>
+            <div className="mt-6 space-y-1 text-sm text-slate-400">
+              <p>E-Mail: <a href="mailto:info@codari.de" className="text-white transition-colors hover:text-primary-light">info@codari.de</a></p>
+              <p>Telefon: <a href="tel:+4921516476293" className="text-white transition-colors hover:text-primary-light">+49 2151 6476293</a></p>
             </div>
           </div>
 
           {/* Link Sections */}
-          {footerSections.map((section, i) => (
+          {serviceSections.map((section, i) => (
             <div key={i}>
               {section.title && (
-                <h3 className="mb-4 text-sm font-medium" style={{ fontFamily: "var(--font-heading)" }}>
+                <h3 className="mb-4 text-sm font-medium">
                   {section.title}
                 </h3>
               )}
@@ -73,12 +74,12 @@ export default function Footer() {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-muted transition-colors hover:text-primary"
+                        className="text-sm text-slate-400 transition-colors hover:text-primary-light"
                       >
                         {link.label}
                       </a>
                     ) : (
-                      <Link href={link.href} className="text-sm text-muted transition-colors hover:text-primary">
+                      <Link href={link.href} className="text-sm text-slate-400 transition-colors hover:text-primary-light">
                         {link.label}
                       </Link>
                     )}
@@ -90,10 +91,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-muted sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm text-slate-400 sm:flex-row">
           <div className="flex gap-6">
-            <Link href="/impressum" className="transition-colors hover:text-primary">Impressum</Link>
-            <Link href="/datenschutzerklarung" className="transition-colors hover:text-primary">Datenschutzerklärung</Link>
+            <Link href="/impressum" className="transition-colors hover:text-primary-light">{t("impressum")}</Link>
+            <Link href="/datenschutzerklarung" className="transition-colors hover:text-primary-light">{t("datenschutz")}</Link>
           </div>
           <Image src="/images/logo.png" alt="CODARI" width={100} height={25} className="brightness-0 invert opacity-60" />
         </div>
